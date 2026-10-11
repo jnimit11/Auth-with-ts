@@ -1,16 +1,17 @@
-import express  from "express";
+import express from "express";
 import type { Express } from "express";
+import { authRouter } from "./Auth/routes.js";
 
-export function createApplication() {
-    const app = express()
+export function createApplication(): Express {
+    const app = express();
 
     //middlewares
 
-    //Routes
+    app.use(express.json())
 
     app.get("/", (req, res) => {
-        return res.json({message: "welcome to auth with TS"})
-    })
+        return res.json({ message: "welcome to auth with TS" });
+    });
 
-    return app
+    return app;
 }
